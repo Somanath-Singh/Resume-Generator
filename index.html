@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <title>Resume Generator</title>
+</head>
+<body>
+
+    <div class="container mt-5 mb-5" id="cv-form">
+        <h2 class="text-center mt-3 mb-4">Resume Generator</h2>
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <h3>Personal Information</h3>
+
+                <div class="form-group mb-2">
+                    <label for="nameField" class="mb-1">Your Name</label>
+                    <input type="text" id="nameField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="emailField" class="mb-1">Your Email Id</label>
+                    <input type="email" id="emailField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="contactField" class="mb-1">Your Contact No</label>
+                    <input type="text" id="contactField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="imgField" class="mb-1">Select Your Photo</label>
+                    <input type="file" id="photoField" placeholder="Enter here" class="form-control">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="dobField" class="mb-1">DOB</label>
+                    <input type="date" id="dobField" class="form-control">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="addressField" class="mb-1">Your Address</label>
+                    <textarea row="5" id="addressField" placeholder="Enter here" class="form-control"></textarea>
+                </div>
+
+                <p class="text-secondary mb-3">Importants Links</p>
+
+                            <div class="form-group mb-2">
+                                <label for="githubField" class="mb-1">GitHub Link</label>
+                                <input type="text" id="githubField" placeholder="Enter here" class="form-control">
+                            </div>
+                            
+                            <div class="form-group mb-2">
+                                <label for="linkedinField" class="mb-1">LinkedIn Link</label>
+                                <input type="text" id="linkedinField" placeholder="Enter here" class="form-control">
+                            </div>
+                            
+                           
+            </div>
+
+            <div class="col-md-6">
+                <h3>Professional Information</h3>
+
+                <div class="form-group mb-2">
+                    <label for="objectiveField" class="mb-1">Objectives</label>
+                    <textarea id="objectiveField" placeholder="Enter here" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group mb-2">
+                    <label for="workField" class="mb-1">Work Experience</label>
+                    <textarea id="workField" placeholder="Enter here" class="form-control weField"></textarea>
+                    
+                    <div class="row mt-2">
+
+                        <div class="col-md-6">
+                            <label for="startDate" class="mb-1">Start Date</label>
+                            <input type="date" id="startDate" class="form-control sDate">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="endDate" class="mb-1">End Date</label>
+                            <input type="date" id="endDate" class="form-control eDate">
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                <hr>
+
+                <div id="we">
+
+                </div>
+
+                <!--new textarea-->
+
+                <div class="container text-center mt-2">
+                    <button onclick="addNewExperience()" class="btn btn-primary">Add</button>
+                </div>
+
+                <p class="text-secondary mb-2">Educational Qualification</p>
+
+                <div class="form-group mb-2">
+                    <label for="courseField" class="mb-1">Enter Course Name</label>
+                    <input type="text" id="courseField" placeholder="Enter here" class="form-control course">
+                
+                    <label for="univercityField" class="mb-1">Enter Univercity Name</label>
+                    <input type="text" id="univercityField" placeholder="Enter here" class="form-control uName">
+
+                    
+                    <div class="row mt-2">
+                
+                        <div class="col-md-6">
+                            <label for="mark" class="mb-1">Enter CGPA/%</label>
+                            <input type="text" id="mark" class="form-control cgpa">
+                        </div>
+                
+                        <div class="col-md-6">
+                            <label for="endYear" class="mb-1">End Year</label>
+                            <input type="month" id="endYear" class="form-control eYear">
+                        </div>
+                
+                    </div>
+                </div>
+
+                <div id="qual">
+
+
+                </div>
+
+                <!--qualification-->
+                
+                <div class="container text-center mt-2" id="qAddButton">
+                    <button class="btn btn-primary" onclick="addNewQualification()">Add</button>
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+
+        <div class="row mt-5">
+
+            <div class="col-md-6">
+                <h3 class="mb-2">Technical Skills</h3>
+
+                <div class="form-group">
+                    <label for="skills" clas="mb-1">Enter Skills</label>
+                    <input type="text" id="skills" class="form-control skills" placeholder="Define Skills">
+                </div>
+
+                <div id="skill">
+
+                </div>
+
+                <!--Skills-->
+
+                <div class="container text-center mt-2" id="qAddButton">
+                    <button class="btn btn-primary" onclick="addNewSkills()">Add</button>
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="mb-3">Projects</h3>
+
+                <div class="form-group mb-2">
+                    <label for="projectField" class="mb-1">Project Description</label>
+                    <textarea id="projectField" placeholder="Enter here" class="form-control pDesc"></textarea>
+
+                    <input type="text" id="projectLink" placeholder="GitHub Link" class="form-control mt-2 pLink" >
+
+                </div>
+
+                <div id="project">
+                    
+                </div>
+
+                <!--Projects-->
+                
+                <div class="container text-center mt-2" id="qAddButton">
+                    <button class="btn btn-primary" onclick="addNewProject()">Add</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="container text-center mt-3" id="qAddButton">
+            <button class="btn btn-primary" onclick="generateCV()">Generate CV</button>
+        </div>
+
+    </div>
+
+    <!--cv template-->
+
+    <div class="container mt-4" id="cv-template">
+
+        <div class="row">
+
+            <div class="col-md-3 text-center background">
+                <!--first col-->
+                <img id="imgField" src="./media/default.png" alt="" class="img-fluid my-img m-3">
+
+                <div class="container">
+                    <p>Name :- <span id="name"></span></p>
+                    <p>Phono No :- +91&nbsp; <span id="phone"></span></p>
+                    <p>Email :- <span id="email"></span></p>
+                    <p>DOB :- <span id="dob"></span></p>
+                    <p>Address :- <span id="address"></span></p>
+                </div>
+
+                <hr>
+
+                <p>
+                    <span>GitHub :-</span><a id="githubL" href="#" style="text-decoration: none;"></a>
+                </p>
+
+                <p>
+                <span>LinkedIn :-</span> <a id="linkedL" href="#" style="text-decoration: none;"></a>
+                </p>
+
+                    <!--skills-->
+                    <div class="background text-left">
+                      
+                        <h3>Technical Skills</h3>
+
+                        <ul id="ts" style="list-style-type: none;">
+                               
+                        </ul>
+
+                    </div>
+
+            </div>
+
+            <div class="col-md-9">
+                <!--first col-->
+                <h1 id="nameT" class="text-center" style="font-weight: 980;">Somanath Singh</h1>
+
+                <!--objective-->
+                <div class="card">
+                    <div class="card-header background">
+                        <h3>Objective</h3>
+                    </div>
+                    <div class="card-body">
+                        <p id="objectiveT"></p>
+                    </div>
+                </div>
+
+                <!--work experience-->
+                <div class="card">
+                    <div class="card-header background">
+                        <h3>Work Experience</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="weT">
+                           
+                        </ul>
+                    </div>
+                </div>
+
+                <!--qualification-->
+                <div class="card">
+                    <div class="card-header background">
+                        <h3>Academic Qualification</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="eqT">
+                           
+                        </ul>
+                    </div>
+                </div>
+
+                <!--Projects-->
+                <div class="card">
+                    <div class="card-header background">
+                        <h3>Projects</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul id="projectT">
+                           
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="container text-center mt-5">
+                <button onclick="printCV()" class="btn background">Print CV</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        
+    <script src="./script.js"></script>
+</body>
+</html>
